@@ -6,6 +6,7 @@ import plotly.express as px
 vehicles = pd.read_csv('vehicles_us.csv')
 vehicles['manufacturer'] = vehicles['model'].apply(lambda x: x.split()[0])
 
+st.title('Under The Hood')
 
 st.header('Data Viewer')
 st.dataframe(vehicles)
@@ -15,7 +16,7 @@ st.header('Vehicle fuel types by engine size')
 fig = px.histogram(vehicles, x='cylinders', color='fuel')
 st.write(fig)
 
-
+st.header('Vehicle types and engine sizes')
 fig = px.scatter(
     vehicles,
     x='type', 
